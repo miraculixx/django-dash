@@ -273,7 +273,7 @@ Required imports.
 
 Defining the Main placeholder.
 
-.. code-block:: python
+.. code-block:: 
 
     class ExampleMainPlaceholder(BaseDashboardPlaceholder):
         uid = 'main' # Unique ID of the placeholder.
@@ -379,13 +379,13 @@ classes and IDs.
 
 Layout (instance)
 
-.. code-block:: python
+.. code-block::
 
     layout.html_class
 
 Placeholder (instance)
 
-.. code-block:: python
+.. code-block:: 
 
     placeholder.html_id
     placeholder.html_class
