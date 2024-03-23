@@ -339,13 +339,13 @@ Both "dash/layouts/base_view_layout.html" and "dash/layouts/base_edit_layout.htm
 Note, that when rendered to HTML, each Dash template, gets a body class "layout" + layouts' unique
 identifier (UID). So, the ``ExampleLayout`` layout would automatically get the class "layout-example".
 
-.. code-block:: html
+.. code-block:: 
 
     <body class="layout-example">
 
 In case of Android layout (UID "android") it would be as follows.
 
-.. code-block:: html
+.. code-block:: 
 
     <body class="layout-android">
 
@@ -355,13 +355,13 @@ Same goes for Placeholders. Each placeholder gets `id_` + placeholders' UID and 
 "placeholder" and "placeholder-" + placeholders' UID. So, the ``ExampleMainPlaceholder`` would look
 as follows.
 
-.. code-block:: html
+.. code-block:: 
 
     <div id="id_main" class="placeholder placeholder-main">
 
 And the ``ExampleShortcutsPlaceholder`` placeholder would look as follows.
 
-.. code-block:: html
+.. code-block:: 
 
     <div id="id_shortcuts" class="placeholder placeholder-shortcuts">
 
@@ -370,7 +370,7 @@ positioning, it gets the "plugin" and "plugin-" + plugin UID. See the following 
 plugin Dummy with UID "dummy"). Each plugin also gets an automatic UID on the moment when rendered.
 In the example below it's the "p6d06f17d-e142-4f45-b9c1-893c38fc2b01".
 
-.. code-block:: html
+.. code-block:: 
 
     <div id="p6d06f17d-e142-4f45-b9c1-893c38fc2b01" class="plugin plugin-dummy">
 
