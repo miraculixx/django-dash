@@ -82,7 +82,7 @@ Or latest stable version from BitBucket:
 2. Add `dash` to ``INSTALLED_APPS`` of the your projects' Django settings. Furthermore, all layouts
    and plugins to be used, shall be added to the ``INSTALLED_APPS`` as well.
 
-.. code-block:: python
+.. code-block::
 
     INSTALLED_APPS = (
         # ...
@@ -250,7 +250,7 @@ Layout and placeholder classes should be placed in the `dash_layouts.py` file.
 
 Each layout should be put into the ``INSTALLED_APPS`` of your Django projects' settings module.
 
-.. code-block:: python
+.. code-block::
 
     INSTALLED_APPS = (
         # ...
@@ -266,7 +266,7 @@ are defined, has to be named `dash_layouts.py`.
 
 Required imports.
 
-.. code-block:: python
+.. code-block:: 
 
     from dash.base import BaseDashboardLayout, BaseDashboardPlaceholder
     from dash.base import layout_registry
@@ -284,7 +284,7 @@ Defining the Main placeholder.
 
 Defining the Shortcuts placeholder.
 
-.. code-block:: python
+.. code-block:: 
 
     class ExampleShortcutsPlaceholder(BaseDashboardPlaceholder):
         uid = 'shortcuts' # UID of the placeholder.
@@ -295,7 +295,7 @@ Defining the Shortcuts placeholder.
 
 Defining and registering the Layout.
 
-.. code-block:: python
+.. code-block:: 
 
     class ExampleLayout(BaseDashboardLayout):
         uid = 'example' # Layout UID.
@@ -392,14 +392,14 @@ Placeholder (instance)
 
 Plugin (instance)
 
-.. code-block:: python
+.. code-block::
 
     plugin.html_id
     plugin.html_class
 
 Plugin widget (static call)
 
-.. code-block:: python
+.. code-block:: 
 
     plugin_widget.html_class # Static one
 
@@ -453,14 +453,14 @@ approaches would be explained.
 
 Required imports.
 
-.. code-block:: python
+.. code-block::
 
     from dash.base import BaseDashboardPlugin, plugin_registry
     from path.to.plugin.sample_memo.forms import SampleMemoForm
 
 Defining the Sample Memo plugin (2x2) (to be used in the `main` placeholder).
 
-.. code-block:: python
+.. code-block:: 
 
     class SampleMemo2x2Plugin(BaseDashboardPlugin):
         uid = 'sample_memo_2x2' # Plugin UID
@@ -471,20 +471,20 @@ Defining the Sample Memo plugin (2x2) (to be used in the `main` placeholder).
 
 Registering the Sample Memo plugin.
 
-.. code-block:: python
+.. code-block:: 
 
     plugin_registry.register(SampleMemo2x2Plugin)
 
 Defining the Sample Memo plugin (1x1) (to be used in the `shortcuts` placeholder).
 
-.. code-block:: python
+.. code-block:: 
 
     class SampleMemo1x1Plugin(SampleMemo2x2Plugin):
         uid = 'sample_memo_1x1' # Plugin UID
 
 Registering the Sample Memo plugin.
 
-.. code-block:: python
+.. code-block::
 
     plugin_registry.register(SampleMemo1x1Plugin)
 
@@ -500,7 +500,7 @@ it's very easy to get a clear overview of all plugins sizes registered.
 
 Required imports.
 
-.. code-block:: python
+.. code-block::
 
     from dash.base import BaseDashboardPlugin
     from dash.factory import plugin_factory
@@ -508,7 +508,7 @@ Required imports.
 
 Defining the base plugin class.
 
-.. code-block:: python
+.. code-block:: 
 
     class BaseSampleMemoPlugin(BaseDashboardPlugin):
         name = _("Memo") # Plugin name
@@ -520,7 +520,7 @@ Note, that we don't provide ``uid`` property in the base class.
 
 Now, that we have the base plugin defined, factory register it for the sizes given.
 
-.. code-block:: python
+.. code-block:: 
 
     sizes = (
         (1, 1),
@@ -538,7 +538,7 @@ Plugin widgets are defined in `dash_widgets.py` module (described later), but re
 
 Required imports.
 
-.. code-block:: python
+.. code-block:: 
 
     from dash.base import plugin_widget_registry
     from path.to.plugin.sample_memo.dash_widgets import (
@@ -547,13 +547,13 @@ Required imports.
 
 Registering the Sample Memo plugin widget for placeholder `main` of layout `example`.
 
-.. code-block:: python
+.. code-block::
 
     plugin_widget_registry.register(SampleMemo2x2ExampleMainWidget)
 
 Registering the Sample Memo plugin widget for placeholder `shortcuts` of layout `example`.
 
-.. code-block:: python
+.. code-block::
 
     plugin_widget_registry.register(SampleMemo1x1ExampleMainWidget)
 
@@ -570,14 +570,14 @@ Define and register the plugin widget
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Required imports.
 
-.. code-block:: python
+.. code-block:: 
 
     from django.template.loader import render_to_string
     from dash.base import BaseDashboardPluginWidget
 
 Memo plugin widget for Example layout (placeholder `main`).
 
-.. code-block:: python
+.. code-block:: 
 
     class SampleMemo2x2ExampleMainWidget(BaseDashboardPluginWidget):
         layout_uid = 'example' # Layout for which the widget is written
@@ -593,7 +593,7 @@ Memo plugin widget for Example layout (placeholder `main`).
 
 Memo plugin widget for Example layout (placeholder `shortcuts`).
 
-.. code-block:: python
+.. code-block:: 
 
     class SampleMemo1x1ExampleShortcutWidget(SampleMemo2x2ExampleMainWidget):
         placeholder_uid = 'shortcuts' # Placeholder within the layout for which
@@ -613,7 +613,7 @@ sizes 1x1 and 2x2.
 
 Required imports.
 
-.. code-block:: python
+.. code-block:: 
 
     from django.template.loader import render_to_string
     from dash.factory import plugin_widget_factory
@@ -621,8 +621,7 @@ Required imports.
 
 Defining the base plugin widget class.
 
-.. code-block:: python
-
+.. code-block:: 
     class BaseSampleMemoWidget(BaseDashboardPluginWidget):
         def render(self, request=None):
             context = {'plugin': self.plugin}
@@ -630,7 +629,7 @@ Defining the base plugin widget class.
 
 Now, that we have the base plugin defined, factory register it for the sizes given.
 
-.. code-block:: python
+.. code-block:: 
 
     sizes = (
         (1, 1),
@@ -653,14 +652,14 @@ Media directive in the form.
 
 Required imports.
 
-.. code-block:: python
+.. code-block:: 
 
     from django import forms
     from dash.base import DashboardPluginFormBase
 
 Memo form (for `Sample Memo` plugin).
 
-.. code-block:: python
+.. code-block:: 
 
     class SampleMemoForm(forms.Form, DashboardPluginFormBase):
         plugin_data_fields = [
@@ -678,7 +677,7 @@ Memo form (for `Sample Memo` plugin).
 Now, that everything is ready, make sure your that both layout and the plugin modules are added to
 ``INSTALLED_APPS`` for your projects' Django settings.
 
-.. code-block:: python
+.. code-block:: 
 
     INSTALLED_APPS = (
         # ...
@@ -707,7 +706,7 @@ Plugin and widget factory
 In general, when making a new plugin, base widgets are made for then too. By creating base
 widgets you avoid duplication of the code. See the example below.
 
-.. code-block:: python
+.. code-block:: 
 
     from dash.base import BaseDashboardPlugin
     class BaseMemoPlugin(BaseDashboardPlugin):
@@ -718,7 +717,7 @@ widgets you avoid duplication of the code. See the example below.
 Now that we have the base plugin, we can use plugin factory to generate and register
 plugin classes of the required dimensions.
 
-.. code-block:: python
+.. code-block:: 
 
     from dash.factory import plugin_factory
     plugin_factory(BaseMemoPlugin, 'memo', ((5, 6), (6, 5), (6, 6)))
@@ -729,7 +728,7 @@ would be automatically generated.
 
 Same goes for the widgets.
 
-.. code-block:: python
+.. code-block:: 
 
     from dash.base import BaseDashboardPluginWidget
     class BaseMemoWidget(BaseDashboardPluginWidget):
@@ -740,7 +739,7 @@ Same goes for the widgets.
 Now that we have the base widget, we can use plugin widget factory to generate and register
 plugin widget classes of the required dimensions.
 
-.. code-block:: python
+.. code-block:: 
 
     from dash.factory import plugin_widget_factory
     plugin_widget_factory(BaseMemoWidget, 'bootstrap2_fluid', 'main', 'memo', ((5, 6), (6, 5), (6, 6)))
